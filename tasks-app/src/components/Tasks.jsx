@@ -2,7 +2,7 @@ import React , { Component }  from "react";
 
 import { Link } from "react-router-dom";
 
-
+import Add from '../container/Add';
 
 class Tasks extends Component {
     componentDidMount() {
@@ -12,17 +12,17 @@ class Tasks extends Component {
     render () {
         const { tasks } = this.props;
         return (
-            // ... the JSX code we had previously
-            <ul className="list-group">
-                { /* map over each article and display a list item for each one */ }
+            <React.Fragment>
+            <Add />
+            <ul className="list-group mx-auto justify-content-center" style={{width:'30%'}}>
                 { tasks.map(task => (
-                    <li className="list-group-item" key={ task.id }>
+                    <li className="list-group-item" key={ task.id } style={{backgroundColor:task.completed?'#E8F7DC':'#EED69D'}}>
                         { /* link to the article using its id */ }
-                        <p>{task.task}</p>
+                        <span style={{fontSize:20}}>{ task.task }</span>
                     </li>
                 ))}
             </ul>
-
+            </React.Fragment>
         );
     }
 }

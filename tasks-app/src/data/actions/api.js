@@ -1,15 +1,12 @@
-import axios from "../../axios";
-import history from "../../history";
+import axios from "../../axios.js";
+import history from "../../history.js";
 // import the setTitles action
-import { setTitles } from "./state";
-import { addArticle } from "./state";
-import { setPost } from "./state";
-import { deleteArticle} from "./state";
+import { setTasks } from "./state";
+import { setTask } from "./state";
 
 export const getTasks = () => dispatch => {
     axios.get("/tasks").then(({ data }) => {
         // for now, just log the response data
-        console.log(data);
         const tasks = data.data;
 
         // dispatch the setTitles action, passing along the articles List
@@ -17,6 +14,17 @@ export const getTasks = () => dispatch => {
 
     });
 };
+
+export const addTask = ({ task }) => dispatch =>{
+	axios.post("/tasks",{
+		"task":task,
+	}).then(({data})=>{
+		console.log("added");
+		const tasks = data.data;
+		dispatch(setTask(tasks));
+		history.push("/");
+	});
+}
 
 
 

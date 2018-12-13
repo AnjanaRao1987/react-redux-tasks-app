@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-import Tasks from "./container/Tasks";
+
 
 
 import {
     BrowserRouter as Router,
     Route,
+    Switch,
 } from "react-router-dom";
 
 
 import Header from './components/Header';
+import FourOhFour from "./components/FourOhFour";
+import Tasks from "./container/Tasks";
 
 const App = ({tasks}) => (
     <React.Fragment>
@@ -20,17 +21,6 @@ const App = ({tasks}) => (
             <Route exact path="/" render={ () => <Tasks tasks={ Object.values(tasks) } /> } />
          </Switch>
     </React.Fragment>
-    )
-
-// class App extends Component {
-//   render() {
-//     return (
-//         <React.Fragment>
-//             <Header />
-            
-//         </React.Fragment>
-//     );
-//   }
-// }
+    );
 
 export default App;

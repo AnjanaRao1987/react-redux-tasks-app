@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import * as serviceWorker from './serviceWorker';
-
-
-import { createStore, applyMiddleware, compose } from "redux";
-import { Router } from "react-router-dom";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 
 
+import history from "./history";
+import { createStore, applyMiddleware, compose } from "redux";
+import { Router } from "react-router-dom";
 
+
+
+import App from './App';
 import initial from './data/initial';
 import reducer from './data/reducer';
 
@@ -27,10 +29,10 @@ const store = createStore(reducer,
 
 ReactDOM.render(
     <Provider store={store}>
-    	<router>
+    	<Router history={ history }>
             <App tasks={ store.getState().tasks } />
-        </router>
+        </Router>
     </Provider>,
     document.getElementById("root"),
 );
-serviceWorker.unregister();
+//serviceWorker.unregister();
