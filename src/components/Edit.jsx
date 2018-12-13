@@ -11,7 +11,7 @@ class Edit extends Component {
 
         return fields ? (
             <React.Fragment>
-                <h2>Edit Task</h2>
+                <h2 style={{fontFamily:"Fira Sans"}}>Edit Task</h2>
                 <Form className="panel-body" handleSubmit={ handleSubmit } fields={ fields } button="Edit" />
             </React.Fragment>
         ) : <FourOhFour />;

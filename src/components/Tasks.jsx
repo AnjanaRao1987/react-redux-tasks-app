@@ -17,6 +17,7 @@ class Tasks extends Component {
         return (
             <React.Fragment>
             <Add />
+            <h2 style={{fontFamily:"Fira Sans",marginLeft:20}}>Task List</h2>
             <ul className="list-group mx-auto justify-content-center" style={{width:'100%'}}>
                 { tasks.map(task => (
                     <li className="list-group-item" key={ task.id } style={{backgroundColor:task.completed?'#E8F7DC':'#EED69D'}}>
