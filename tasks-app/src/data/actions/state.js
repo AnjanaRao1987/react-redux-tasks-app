@@ -15,3 +15,10 @@ export const setTask = ({ task , id }) => {
         id:id,
     };
 };
+
+export const removeTask = ( id ) => {
+    return {
+        type: "removeTask",
+        id: id,
+    };
+};
