@@ -26,8 +26,8 @@ class Form extends Component {
     }
 
     handleSubmit(e){
-        console.log(this.state.fields);
         e.preventDefault();
+        console.log(this.state.fields);
         let data = this.state.fields.reduce((data, field) => {
         data[field.name] = field.value;
         return data;

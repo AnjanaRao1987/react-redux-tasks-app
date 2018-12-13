@@ -50,12 +50,26 @@ const taskComplete = (state, action) => {
     };
 
  };
+
+
+ const editTask = (state, action) => {
+ 		let tasksCopy = state.tasks.map(task=>{
+ 		if(task.id === action.task.id)task.task = action.task.task;
+ 		return task;
+	 })
+
+    return {
+        ...state,
+        tasks: tasksCopy,
+    };
+};
 const reducer = (state, action) =>{
     switch(action.type){
     	case "setTasks":return setTasks(state, action);
     	case "addTask":return addTask(state, action);
     	case "removeTask":return removeTask(state, action);
     	case "taskComplete":return taskComplete(state, action);
+    	case "editTask":return editTask(state, action);
         default: return state;
     }
 }

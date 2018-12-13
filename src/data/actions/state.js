@@ -29,3 +29,10 @@ export const taskComplete = ( id ) => {
         id: id,
     };
 };
+
+export const updateTask = task => {
+    return {
+        type: "editTask",
+        task: task,
+    };
+}

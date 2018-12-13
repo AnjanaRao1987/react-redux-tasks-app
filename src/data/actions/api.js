@@ -1,22 +1,27 @@
 import axios from "../../axios.js";
 import history from "../../history.js";
-// import the setTitles action
 import { setTasks } from "./state";
 import { setTask } from "./state";
 import { removeTask } from "./state";
 import { taskComplete } from "./state";
+import { updateTask } from "./state";
 
 
 export const getTasks = () => dispatch => {
     axios.get("/tasks").then(({ data }) => {
-        // for now, just log the response data
         const tasks = data.data;
-
-        // dispatch the setTitles action, passing along the articles List
         dispatch(setTasks(tasks));
 
     });
 };
+
+export const getTask = id => dispatch => {
+    axios.get(`/tasks/${id}`).then(({ data }) => {
+        const task = data.data;
+        dispatch(setTask(task));
+    });
+};
+
 
 export const addTask = ({ task }) => dispatch =>{
 	axios.post("/tasks",{
@@ -30,7 +35,6 @@ export const addTask = ({ task }) => dispatch =>{
 }
 
 export const deleteTask = (id) => dispatch =>{
-
 	    axios.delete("/tasks/"+id).then(({ data }) => {
         dispatch(removeTask(id));
 
@@ -43,7 +47,13 @@ export const patchTask = (id) => dispatch =>{
     });
 }
 
-
+export const putTask= (id, data) => dispatch => {
+    axios.put(`/tasks/${id}`, data).then(({ data }) => {
+        const task = data.data;
+        dispatch(updateTask(task));
+        history.push("/");
+    });
+};
 
 
 

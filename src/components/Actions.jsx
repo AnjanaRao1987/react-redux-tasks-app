@@ -1,6 +1,6 @@
 import React from "react";
 
-
+import { Link } from "react-router-dom";
 // a component to show the Edit and Delete buttons
 const Actions = ({ task, handleDelete, handleComplete}) => (
     <aside className="pull-right">
@@ -14,7 +14,11 @@ const Actions = ({ task, handleDelete, handleComplete}) => (
         	style= {{backgroundColor:'#FAE7E1', marginLeft:50}}
         	className="btn">Delete Task</button>
         
-
+        <Link to={ "/tasks/" + task.id } 
+        	  className="btn"
+        	  style= {{backgroundColor:'#FAE7E1', marginLeft:50,color:'black'}}>
+            Edit Task
+        </Link>
 
 
     </aside>
