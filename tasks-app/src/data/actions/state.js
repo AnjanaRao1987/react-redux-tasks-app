@@ -22,3 +22,10 @@ export const removeTask = ( id ) => {
         id: id,
     };
 };
+
+export const taskComplete = ( id ) => {
+    return {
+        type: "taskComplete",
+        id: id,
+    };
+};

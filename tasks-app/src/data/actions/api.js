@@ -4,6 +4,8 @@ import history from "../../history.js";
 import { setTasks } from "./state";
 import { setTask } from "./state";
 import { removeTask } from "./state";
+import { taskComplete } from "./state";
+
 
 export const getTasks = () => dispatch => {
     axios.get("/tasks").then(({ data }) => {
@@ -30,14 +32,16 @@ export const addTask = ({ task }) => dispatch =>{
 export const deleteTask = (id) => dispatch =>{
 
 	    axios.delete("/tasks/"+id).then(({ data }) => {
-        // dispatch the setTitles action, passing along the articles List
-                console.log("deleted");
         dispatch(removeTask(id));
-
 
     });
 }
 
+export const patchTask = (id) => dispatch =>{
+	    axios.patch("/tasks/"+id+"/completed").then(({ data }) => {
+        dispatch(taskComplete(id));
+    });
+}
 
 
 
