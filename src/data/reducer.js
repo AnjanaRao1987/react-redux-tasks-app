@@ -16,10 +16,6 @@ const setTasks = (state, {tasks}) => {
 
 const addTask = (state, action) => {
    let newTask = createTask(action);
-   let dummy = {
-        ...state,
-		tasks: state.tasks.concat(newTask),
-    };
     return {
         ...state,
 		tasks: state.tasks.concat(newTask),
@@ -28,17 +24,14 @@ const addTask = (state, action) => {
  };
 
   const removeTask = (state,action) =>{
-    let removed = state.tasks.findIndex(task => task.id === action.id);
-    let tasks_dummy = state.tasks.slice(0,removed).concat(state.tasks.slice(removed + 1));
     return {
         ...state,
-		tasks: tasks_dummy,
+		tasks: state.tasks.filter(task=>task.id!==action.id),
     };  
  }
 
 
 const taskComplete = (state, action) => {
-
  let tasksCopy = state.tasks.map(task=>{
  	if(task.id === action.id)task.completed = true;
  	return task;
@@ -53,7 +46,7 @@ const taskComplete = (state, action) => {
 
 
  const editTask = (state, action) => {
- 		let tasksCopy = state.tasks.map(task=>{
+ 	let tasksCopy = state.tasks.map(task=>{
  		if(task.id === action.task.id)task.task = action.task.task;
  		return task;
 	 })
@@ -63,6 +56,8 @@ const taskComplete = (state, action) => {
         tasks: tasksCopy,
     };
 };
+
+
 const reducer = (state, action) =>{
     switch(action.type){
     	case "setTasks":return setTasks(state, action);
