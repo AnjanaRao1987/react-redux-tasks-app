@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import FourOhFour from "./FourOhFour";
 import Form from "./Forms/Form";
 
-// the fields the form should have
+// Just editing Task.task
 
 class Edit extends Component {
 

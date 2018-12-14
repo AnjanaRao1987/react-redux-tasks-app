@@ -4,22 +4,22 @@ import { patchTask } from "../data/actions/api";
 import history from "../history";
 import Actions from "../components/Actions";
 
-// map dispatch to props gets given store's dispatch method as the first argument
-// again, we return an object which gets passed in as props to the wrapped component
 
+//call mapStateToProps to get the current state.. make sure component is rerendered 
 const mapStateToProps = (state) =>{
 	return state;
 }
 
 
-const mapDispatchToProps = (dispatch,{task}) => {
-	
+const mapDispatchToProps = (dispatch,{task}) => {	
     return {
-        // onSubmit is a function which dispatches an action "addArticle"
+        //Delete Task Api action to delete perticular task with ID
         handleDelete: () => {
         	dispatch(deleteTask(task.id));
         	history.push("/");
         },
+
+        //Path task API to mark a perticular task completed
         handleComplete: () =>{
         	dispatch(patchTask(task.id));
         	history.push("/");
@@ -28,7 +28,5 @@ const mapDispatchToProps = (dispatch,{task}) => {
     };
 };
 
-// connect up mapDispatchToProps with the Add component
-// has to be the second argument - the first is for mapStateToProps
-// Add' props are now controlled by this file
+
 export default connect(mapStateToProps, mapDispatchToProps)(Actions);

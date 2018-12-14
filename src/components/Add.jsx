@@ -7,7 +7,7 @@ const fields = [
     { name: "task", label: "", value: "" },
 ];
 
-// the add article component
+// the add Task Component
 const Add = ({handleSubmit}) => (
     <React.Fragment>
         <h2 style={{fontFamily:"Fira Sans",marginLeft:20}}>Add Task</h2>

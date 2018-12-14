@@ -3,6 +3,8 @@ import Edit from "../components/Edit";
 import history from "../history";
 import { putTask } from "../data/actions/api";
 
+
+//mapStateToProps to ge the current task to be displayed to edit
 const mapStateToProps = (state ,{id}) => {
    let task = state.tasks.filter(task=>(task.id===id));
    let fields = (task[0])?[
@@ -13,6 +15,8 @@ const mapStateToProps = (state ,{id}) => {
     };
 };
 
+
+//Dispatch an API action putTask to amend task in database
 const mapDispatchToProps = (dispatch,{id}) => {
     return {
         handleSubmit: data => {
