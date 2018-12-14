@@ -50,7 +50,6 @@ const taskComplete = (state, action) => {
  		if(task.id === action.task.id)task.task = action.task.task;
  		return task;
 	 })
-
     return {
         ...state,
         tasks: tasksCopy,

@@ -1,12 +1,18 @@
 import React from "react";
+import Logo from '../resources/logo.png';
 
 const Header = () => (
     <React.Fragment>
-    	<div className="text-center">
-    	<hr />
-        	<h2 style={{fontFamily:"Fira Sans"}}>Task management</h2>
-        <hr />
+       <hr />
+       <div style={{display:'inline-block',width:'100%'}}>
+    		<div style= {{float: 'left'}} className= "text-center">
+        		<h1   style={{fontFamily:"Fira Sans",marginLeft:20}}>Task management</h1>
+        	</div>
+        	<div style= {{float: 'right'}}>
+        		<img src={Logo} width="100" height="100" />
+        	</div>
         </div>
+       <hr />
     </React.Fragment>
 );
 

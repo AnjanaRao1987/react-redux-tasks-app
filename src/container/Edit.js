@@ -15,7 +15,6 @@ const mapStateToProps = (state ,{id}) => {
 
 const mapDispatchToProps = (dispatch,{id}) => {
     return {
-        // onSubmit is a function which dispatches an action "addArticle"
         handleSubmit: data => {
           dispatch(putTask(id,data));
           history.push("/");

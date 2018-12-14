@@ -20,7 +20,6 @@ const App = ({tasks}) => (
      <Header />
          <Switch>
             <Route exact path="/" render={ () => <Tasks tasks={ Object.values(tasks) } /> } />
-
             <Route exact path="/tasks/:id" render={ ({ match }) => (
                 <Edit id={ +match.params.id } />
             )} />

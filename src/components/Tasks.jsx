@@ -18,7 +18,7 @@ class Tasks extends Component {
             <React.Fragment>
             <Add />
             <h2 style={{fontFamily:"Fira Sans",marginLeft:20}}>Task List</h2>
-            <ul className="list-group mx-auto justify-content-center" style={{width:'100%'}}>
+            <ul className="list-group mx-auto justify-content-center" style={{width:'90%',marginLeft:20}}>
                 { tasks.map(task => (
                     <li className="list-group-item" key={ task.id } style={{backgroundColor:task.completed?'#E8F7DC':'#EED69D'}}>
                         { /* link to the article using its id */ }
